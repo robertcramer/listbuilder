@@ -25,7 +25,7 @@ class ListsController < ApplicationController
   # POST /lists.json
   def create
     @list = List.new(user_id: current_user.id,
-                      name: params[:name])
+                      title: params[:title])
 
     respond_to do |format|
       if @list.save
@@ -70,7 +70,7 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params[:name, params[:name],
+      params[:title, params[:title],
             :user_id, current_user.id]
     end
 end
